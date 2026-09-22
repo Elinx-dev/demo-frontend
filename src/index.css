@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-ipc-primary: var(--ipc-primary);
+  --color-ipc-primary-light: var(--ipc-primary-light);
+  --color-ipc-primary-border: var(--ipc-primary-border);
+  --color-ipc-background: var(--ipc-background);
+  --color-ipc-surface: var(--ipc-surface);
+  --color-ipc-text: var(--ipc-text);
+  --color-ipc-text-muted: var(--ipc-text-muted);
+  --color-ipc-text-secondary: var(--ipc-text-secondary);
+  --color-ipc-accent: var(--ipc-accent);
+  --color-ipc-hover: var(--ipc-hover);
+  --color-ipc-border: var(--ipc-border);
+  --color-ipc-success: var(--ipc-success);
+  --color-ipc-success-bg: var(--ipc-success-bg);
+  --color-ipc-success-text: var(--ipc-success-text);
+  --color-ipc-warning: var(--ipc-warning);
+  --color-ipc-warning-bg: var(--ipc-warning-bg);
+  --color-ipc-warning-text: var(--ipc-warning-text);
+  --color-ipc-danger: var(--ipc-danger);
+  --color-ipc-danger-bg: var(--ipc-danger-bg);
+  --color-ipc-danger-text: var(--ipc-danger-text);
+  --color-ipc-info: var(--ipc-info);
+  --color-ipc-info-bg: var(--ipc-info-bg);
+  --color-ipc-info-text: var(--ipc-info-text);
+  --color-ipc-canvas: var(--ipc-canvas);
+  --color-ipc-navy-50: var(--ipc-navy-50);
+  --color-ipc-status-active: var(--ipc-status-active);
+  --color-ipc-status-expiring: var(--ipc-status-expiring);
+  --color-ipc-status-expired: var(--ipc-status-expired);
+  --color-ipc-status-syncing: var(--ipc-status-syncing);
+  --color-ipc-status-draft: var(--ipc-status-draft);
+  --color-ipc-auth-primary: var(--color-auth-primary);
+}
+
+/* ======================================================
+
+   THEME TOKENS (Single Source of Truth)
+
+   ====================================================== */
+
+
+
+:root {
+
+  /* Typography */
+
+  --font-inherit: 'Inter', ui-inherit-inherit, system-ui, -apple-system,
+
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+
+
+  /* Brand / Primary */
+
+  --color-primary: #0f172a;
+  --color-auth-primary: #262B3E;
+  --color-primary-light: #e8eefc;
+
+  --color-primary-border: #cbd5f5;
+
+  --color-primary-hover: #dbe7ff;
+
+  --color-accent: #6366f1;
+
+  --ipc-primary: #182343;
+
+  --ipc-primary-light: #F5F5F3;
+
+  --ipc-primary-border: #D8D6D1;
+
+  --ipc-background: #F3F3F1;
+
+  --ipc-surface: #ffffff;
+
+  --ipc-text: #001A44;
+
+  --ipc-text-muted: #8A8982;
+
+  --ipc-text-secondary: #4E5664;
+
+  --ipc-accent: #182343;
+
+  --ipc-hover: #101A35;
+
+  --ipc-border: #DAD8D2;
+
+  --ipc-success: #0E7668;
+
+  --ipc-warning: #9A5A13;
+
+  --ipc-danger: #B42318;
+
+  --ipc-info: #0B4E8A;
+
+
+
+  /* Surfaces */
+
+  --bg: #f8fafc;
+
+  --surface: #ffffff;
+
+
+
+  /* Text */
+
+  --text: #0f172a;
+
+  --text-muted: #64748b;
+
+  --disabled-text: #94a3b8;
+
+   --ipc-success:        #1D9E75;
+  --ipc-warning:        #BA7517;
+  --ipc-danger:         #E24B4A;
+  --ipc-info:           #2E6FB0;
+  --ipc-text-secondary: #5F5E5A;
+ 
+  /* NEW semantic bg/text pairs */
+  --ipc-success-bg:     #E1F5EE;
+  --ipc-success-text:   #0F6E56;
+  --ipc-warning-bg:     #FAEEDA;
+  --ipc-warning-text:   #854F0B;
+  --ipc-danger-bg:      #FCEBEB;
+  --ipc-danger-text:    #A32D2D;
+  --ipc-info-bg:        #E6F1FB;
+  --ipc-info-text:      #0C447C;
+ 
+  /* NEW status dot colors */
+  --ipc-status-active:   #639922;
+  --ipc-status-expiring: #EF9F27;
+  --ipc-status-expired:  #E24B4A;
+  --ipc-status-syncing:  #2E6FB0;
+  --ipc-status-draft:    #8A8982;
+ 
+  /* NEW canvas & navy scale */
+  --ipc-canvas:   #FAFAF7;
+  --ipc-navy-50:  #F0F1F5;
+ 
+  /* NEW focus ring */
+  --ipc-focus-ring: #CFD2DA;
+ 
+  /* NEW shadows (navy-tinted) */
+  --ipc-shadow-sm: 0 1px 3px rgba(23, 33, 66, 0.08);
+  --ipc-shadow-md: 0 4px 12px rgba(23, 33, 66, 0.10);
+  --ipc-shadow-lg: 0 8px 24px rgba(23, 33, 66, 0.10);
+  --ipc-shadow-xl: 0 16px 40px rgba(23, 33, 66, 0.14);
+ 
+  /* Motion */
+  --ipc-dur-fast:  120ms;
+  --ipc-dur-base:  200ms;
+  --ipc-dur-slow:  320ms;
+  --ipc-ease:      cubic-bezier(0.4, 0, 0.2, 1);
+  --ipc-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+ 
+  /* Fonts */
+  --ipc-font-display: 'Playfair Display', Georgia, serif;
+  --ipc-font-sans:    'Inter', ui-sans-serif, system-ui, sans-serif;
+  --ipc-font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+}
+
+
+
+/* ======================================================
+
+   DARK THEME
+
+   ====================================================== */
+
+
+
+[data-theme="dark"] {
+
+  --color-primary: #e5e7eb;
+
+  --color-primary-light: #1f2933;
+
+  --color-primary-border: #334155;
+
+  --color-primary-hover: #111827;
+
+  --color-accent: #818cf8;
+
+
+
+  --bg: #020617;
+
+  --surface: #020617;
+
+
+
+  --text: #e5e7eb;
+
+  --text-muted: #94a3b8;
+
+  --disabled-text: #6b7280;
+
+}
+
+
+
+/* ======================================================
+
+   GLOBAL BASE
+
+   ====================================================== */
+
+
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar — applied app-wide */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 42, 74, 0.45) rgba(15, 42, 74, 0.05);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(15, 42, 74, 0.05);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 42, 74, 0.45);
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background-clip: content-box;
+  min-height: 32px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(15, 42, 74, 0.65);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+body {
+
+  margin: 0;
+
+  background-color: var(--bg);
+
+  color: var(--text);
+
+  font-family: var(--font-inherit);
+
+
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+
+
+
+  transition: background-color 200ms ease, color 200ms ease;
+
+}
+
+
+
+/* ======================================================
+
+   GLOBAL LAYOUT PRIMITIVES (INTENTIONAL ONLY)
+
+   ====================================================== */
+
+
+
+/* Constrained page container */
+
+.container {
+
+  max-width: 1200px;
+
+  margin-left: auto;
+
+  margin-right: auto;
+
+  padding-left: 1rem;
+
+  padding-right: 1rem;
+
+}
+
+/* App route content shell
+   The shell itself must stay full-width like the header. Individual pages can
+   still opt into readable max widths, but the route wrapper should not create
+   a tiny centered island when the browser is zoomed out. */
+.ipc-route-content {
+  width: 100%;
+  min-width: 0;
+}
+
+.ipc-page-frame {
+  width: 100%;
+  max-width: min(100%, 1440px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1920px) {
+  .ipc-page-frame {
+    max-width: min(92vw, 1680px);
+  }
+}
+
+@media (min-width: 2400px) {
+  .ipc-page-frame {
+    max-width: none;
+  }
+}
+
+.ipc-page-pad {
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .ipc-page-pad {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ipc-page-pad {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .ipc-page-pad {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .ipc-page-pad {
+    padding: 1.5rem 2rem;
+  }
+}
+
+
+
+/* Card primitive (used by layouts / pages if needed) */
+
+.card {
+
+  background-color: var(--surface);
+
+  border-radius: 1rem;
+
+  border: 1px solid var(--color-primary-border);
+
+  box-shadow: 0 6px 18px rgba(14, 22, 38, 0.08);
+
+}
+
+
+
+/* ======================================================
+
+   ACCESSIBILITY & SAFETY
+
+   ====================================================== */
+
+
+
+:focus-visible {
+
+  outline: 2px solid var(--color-accent);
+
+  outline-offset: 2px;
+
+}
+.font-display { font-family: var(--ipc-font-display) !important; }
+.font-sans    { font-family: var(--ipc-font-sans) !important; }
+.font-mono    { font-family: var(--ipc-font-mono) !important; }
+ 
+/* Apply Inter globally to the app */
+body {
+  font-family: var(--ipc-font-sans);
+  background: var(--ipc-canvas);
+  color: var(--ipc-text);
+}
+ 
+/* Table numeric cells — apply to td with figures */
+.cell-numeric {
+  font-family: var(--ipc-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+ 
+/* Navy-tinted shadow utilities */
+.shadow-ipc-sm { box-shadow: var(--ipc-shadow-sm); }
+.shadow-ipc-md { box-shadow: var(--ipc-shadow-md); }
+.shadow-ipc-lg { box-shadow: var(--ipc-shadow-lg); }
+.shadow-ipc-xl { box-shadow: var(--ipc-shadow-xl); }

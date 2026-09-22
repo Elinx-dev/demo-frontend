@@ -1,0 +1,31 @@
+/* ======================================================
+   App-level CSS
+   ------------------------------------------------------
+   Purpose:
+   - VERY minimal
+   - NO layout rules
+   - NO demo / template styles
+   - NO duplication of index.css
+   ====================================================== */
+
+/* App shell safety */
+#root {
+  height: 100%;
+}
+
+/* Optional: smooth route transitions (safe) */
+.app-fade-enter {
+  opacity: 0;
+}
+
+.app-fade-enter-active {
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+/* Optional: utility for page-level centering (rare use) */
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
